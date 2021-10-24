@@ -22,11 +22,11 @@ def Player_Piece_Choice():
 
 
 def safe_selection(board, loc):
-    if board[loc] == " ":
-        print("False")
-        return False
-    else:
+    if board[loc] != " ":
         return True
+
+    print("False")
+    return False
 
 
 def Print_Board(board):
@@ -43,7 +43,7 @@ def Print_Board_Start():
 
 def Make_Selection(board):
     run = True
-    while run == True:
+    while run:
         value = input("Please choose your location")
         run = safe_selection(board, int(value))
 
@@ -91,7 +91,7 @@ def Check_for_Win(board):
             return "The player has won."
         else:
             return "The AI has won."
-    elif not " " in board.values():
+    elif " " not in board.values():
         return "Stalemate"
     else:
         return "inprog"
